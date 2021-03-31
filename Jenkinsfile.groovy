@@ -97,7 +97,7 @@ pipeline {
                         files = findFiles(glob: 'build/**')
                         files.each { 
                             println "File:  ${it}"
-                            s3Upload(file:"${it}", bucket:"${s3Artifact}",path:"${it.replace("build","")}")
+                            s3Upload(file:"${it}", bucket:"${s3Artifact}")
                         }
                     }
                 }
