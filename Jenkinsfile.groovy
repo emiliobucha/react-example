@@ -93,7 +93,7 @@ pipeline {
                 timeout(300) {
                     waitUntil {
                         script {
-                            def r = sh script: "curl -s http://${s3Artifact}.s3-website-${region}.amazonaws.com/", returnStatus: true
+                            def r = sh script: "curl -s http://${s3Artifact}.s3-website-${awsRegion}.amazonaws.com/", returnStatus: true
                             return (r == 0);
                         }
                     }
