@@ -105,7 +105,7 @@ pipeline {
         }
         stage('Check Application is Up and Running') {
             steps {
-                echo "Check CodePipeline Running"
+                echo "Check webpage is deployed"
                 timeout(300) {
                     waitUntil {
                         script {
