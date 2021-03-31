@@ -87,6 +87,20 @@ pipeline {
                 }
             }
         }
+        stage('Deploy Artifact to S3 Bucket') {
+            steps {
+                input "Deploy Artifact ${artifact} to S3 Bucket ${s3Artifact}?"
+                println artifact
+                println s3Artifact
+                withAWS(credentials: "${awsCredentials}", region: "${awsRegion}") {
+                    files = findFiles(glob: '*.*')
+                    files.each { 
+                        println "File:  ${it}"
+                        s3Upload(file:"${it}", bucket:"${s3Artifact}")
+                    }
+                }
+            }
+        }
         stage('Check Application is Up and Running') {
             steps {
                 echo "Check CodePipeline Running"
