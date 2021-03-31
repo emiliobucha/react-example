@@ -94,7 +94,7 @@ pipeline {
                 println s3Artifact
                 withAWS(credentials: "${awsCredentials}", region: "${awsRegion}") {
                     script {
-                        files = findFiles(glob: 'build/*.*')
+                        files = findFiles(glob: 'build/*')
                         files.each { 
                             println "File:  ${it}"
                             s3Upload(file:"${it}", bucket:"${s3Artifact}")
