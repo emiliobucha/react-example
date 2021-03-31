@@ -56,7 +56,7 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 echo "Running Unit Tests"
-                sh "${npmCmd} test"
+                sh "${npmCmd} test -- --watchAll=false"
             }
         }
         stage('Code Analysis') {
