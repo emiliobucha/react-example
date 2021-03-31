@@ -96,6 +96,7 @@ pipeline {
                     script {
                         files = findFiles(glob: 'build/**')
                         files.each { 
+                            def deletedBuild = it.replaceAll("build/","")
                             println "File:  ${it}"
                             s3Upload(file:"${it}", bucket:"${s3Artifact}",path:"${it}")
                         }
