@@ -42,10 +42,14 @@ pipeline {
                 }
             }
         }
+        stage('Install dependencies') {
+            steps {
+                sh "${npmCmd} install"
+            }
+        }
         stage('Build React App Dev') {
             steps {
                 echo "Building version ${devTag}"
-                sh "${npmCmd} install"
                 sh "${npmCmd} run build"
             }
         }
