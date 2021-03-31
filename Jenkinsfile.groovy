@@ -93,11 +93,14 @@ pipeline {
                 println artifact
                 println s3Artifact
                 withAWS(credentials: "${awsCredentials}", region: "${awsRegion}") {
-                    script {
-                        files = findFiles(glob: 'build/**')
-                        files.each { 
-                            println "File:  ${it}"
-                            s3Upload(file:"${it}", bucket:"${s3Artifact}")
+                    
+                    dir("build") {
+                        script {
+                            files = findFiles(glob: '**')
+                            files.each { 
+                                println "File:  ${it}"
+                                s3Upload(file:"${it}", bucket:"${s3Artifact}", path:"${it}")
+                            }
                         }
                     }
                 }
