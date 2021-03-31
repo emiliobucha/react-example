@@ -36,8 +36,8 @@ pipeline {
                 script {                   
                     def packageJSON = readJSON file: 'package.json'
                     def packageJSONVersion = packageJSON.version
-                    devTag  = "${version}-" + currentBuild.number
-                    prodTag = "${version}"
+                    devTag  = "${packageJSONVersion}-" + currentBuild.number
+                    prodTag = "${packageJSONVersion}"
                     echo packageJSONVersion
                 }
             }
