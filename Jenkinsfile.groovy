@@ -1,4 +1,4 @@
-@Library("jenkins-library-react-pipeline") _
+@Library("shared-library") _
 reactBuildPipeline{
     npmCmd      = "npm"
     devTag      = "0.0-0"
