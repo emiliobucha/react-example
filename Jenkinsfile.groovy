@@ -12,6 +12,7 @@ reactBuildPipeline{
     awsRegion = "us-east-1"
     awsProfile = "semperti"
 }
+@Library("shared-library") _
 reactDeployS3Pipeline{
     npmCmd      = "npm"
     devTag      = "0.0-0"
