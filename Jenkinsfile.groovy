@@ -1,6 +1,4 @@
-library identifier: 'jenkins-library-react-pipeline@main', 
-        retriever: modernSCM([$class: 'GitSCMSource', remote: 'https://github.com/emiliobucha/jenkins-library-react-pipeline.git'])
-
+@Library("jenkins-library-react-pipeline") _
 reactBuildPipeline{
     npmCmd      = "npm"
     devTag      = "0.0-0"
