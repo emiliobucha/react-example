@@ -11,4 +11,5 @@ reactAwsS3Pipeline{
     awsCredentials = "aws-bucha"
     awsRegion = "us-east-1"
     awsProfile = "semperti"
+    buildFolder = "build"
 }
